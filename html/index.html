@@ -88,9 +88,13 @@
 
         // Função que muda a logo dependendo do tamanho da janela
         window.addEventListener('resize', function(){
+            // Executa a função que retorna o tamanho da tela 
+            // e verifica se é menor ou igual a 570px
             if(tamanhoJanela() <= '570'){
+                //Se menor ou igual a 570px, executa a função logoMobile
                 logoMobile();
             } else {
+                //Senão, executa logoMonitor
                 logoMonitor();
             }   
         });
