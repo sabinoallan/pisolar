@@ -80,12 +80,18 @@
 
             return windowWidth;
         }
-        window.addEventListener('resize', function(){
+        function verificarTela(){
             if(tamanhoJanela() <= '600'){
                 logoMobile();
             } else {
                 logoMonitor();
-            }   
+            }  
+        }
+        window.addEventListener('DOMContentLoaded', function(){
+            verificarTela();
+        });
+        window.addEventListener('resize', function(){
+            verificarTela(); 
         });
     </script>
   </body>
