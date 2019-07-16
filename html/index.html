@@ -85,23 +85,21 @@
             var windowWidth = window.innerWidth;
             return windowWidth;
         }
-
-        // Assim que o documento for carregado
-        $(document).ready(()=>{
+        function trocarImagem(){
             // Verificar o tamanho da janela e trocar para logo correspondente
             if(tamanhoJanela() <= '620'){
                 logoMobile();
             } else {
                 logoMonitor();
             }
+        }
+
+        // Assim que o documento for carregado
+        $(document).ready(()=>{
+            trocarImagem();
             //Sempre que a janela for redimensionada
             window.addEventListener('resize', () => {
-                //Mudar a logo
-                if(tamanhoJanela() <= '620'){
-                    logoMobile();
-                } else {
-                    logoMonitor();
-                }   
+                trocarImagem(); 
             });
         });
     </script>
