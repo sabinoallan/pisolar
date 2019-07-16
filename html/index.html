@@ -20,7 +20,7 @@
     <nav class="navbar navbar-expand-md navbar-light flex-md-column flex-sm-row border-bottom shadow-sm">
         <div>
             <a class="navbar-brand" href="">
-                <img src="../svg/logoMonitor.svg/" id="logo" width="190" height="40" alt="">
+                <img id="logo" src="" width="" height="" alt="">
             </a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#content" aria-controls="content" aria-expanded="false" aria-label="Alterna navegação">
@@ -68,16 +68,16 @@
 
         // Função para trocar a logo e redimensionar para mobile
         function logoMobile(){
-            img.setAttribute('src', '../svg/logoMobile.svg/');
+            img.setAttribute('src', '../svg/logoMobile.svg');
             img.setAttribute('width', '100');
             img.setAttribute('height', '60');
         }
 
         // Função para trocar a logo e redimensionar para telas maiores
         function logoMonitor(){
-            img.setAttribute('src', '../svg/logoMonitor.svg/');
-            img.setAttribute('width', '190');
-            img.setAttribute('height', '40');
+            img.setAttribute('src', '../svg/logoMonitor.svg');
+            img.setAttribute('width', '240');
+            img.setAttribute('height', '80');
         }
 
         // Função que retorna a largura da da tela
@@ -86,18 +86,28 @@
             return windowWidth;
         }
 
-        // Função que muda a logo dependendo do tamanho da janela
-        window.addEventListener('resize', function(){
-            // Executa a função que retorna o tamanho da tela 
-            // e verifica se é menor ou igual a 570px
-            if(tamanhoJanela() <= '570'){
-                //Se menor ou igual a 570px, executa a função logoMobile
+        document.onload = () => {
+            console.log(tamanhoJanela());
+            if(tamanhoJanela() <= '620'){
+                //Se menor ou igual a 620px, executa a função logoMobile
                 logoMobile();
             } else {
                 //Senão, executa logoMonitor
                 logoMonitor();
-            }   
-        });
+            }
+            // Função que muda a logo dependendo do tamanho da janela
+            window.addEventListener('resize', () => {
+                // Executa a função que retorna o tamanho da tela 
+                // e verifica se é menor ou igual a 620px
+                if(tamanhoJanela() <= '620'){
+                    //Se menor ou igual a 620px, executa a função logoMobile
+                    logoMobile();
+                } else {
+                    //Senão, executa logoMonitor
+                    logoMonitor();
+                }
+            });
+        }
     </script>
   </body>
 </html>
