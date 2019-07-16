@@ -20,7 +20,7 @@
     <nav class="navbar navbar-expand-md navbar-light flex-md-column flex-sm-row border-bottom shadow-sm">
         <div>
             <a class="navbar-brand" href="">
-                <img src="../svg/logoMonitor.svg" id="logo" width="280" height="100" alt="">
+                <img src="../svg/logoMonitor.svg" id="logo" width="240" height="80" alt="">
             </a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#content" aria-controls="content" aria-expanded="false" aria-label="Alterna navegação">
@@ -63,7 +63,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script>
-
         var img = document.getElementById('logo');
         function logoMobile(){
             img.setAttribute('src', '../svg/logoMobile.svg');
@@ -72,26 +71,26 @@
         }
         function logoMonitor(){
             img.setAttribute('src', '../svg/logoMonitor.svg');
-            img.setAttribute('width', '280');
-            img.setAttribute('height', '100');
+            img.setAttribute('width', '240');
+            img.setAttribute('height', '80');
         }
         function tamanhoJanela(){
-            var windowWidth = window.width;
-
+            var windowWidth = window.innerWidth;
             return windowWidth;
         }
-        function verificarTela(){
+        window.addEventListener('DOMContentLoaded', function(){
             if(tamanhoJanela() <= '600'){
                 logoMobile();
             } else {
                 logoMonitor();
-            }  
-        }
-        window.addEventListener('DOMContentLoaded', function(){
-            verificarTela();
+            }   
         });
         window.addEventListener('resize', function(){
-            verificarTela(); 
+            if(tamanhoJanela() >= '600'){
+                logoMonitor();
+            } else {
+                logoMobile();
+            }   
         });
     </script>
   </body>
