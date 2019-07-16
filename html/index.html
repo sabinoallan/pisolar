@@ -86,28 +86,24 @@
             return windowWidth;
         }
 
-        document.onload = () => {
-            console.log(tamanhoJanela());
+        // Assim que o documento for carregado
+        $(document).ready(()=>{
+            // Verificar o tamanho da janela e trocar para logo correspondente
             if(tamanhoJanela() <= '620'){
-                //Se menor ou igual a 620px, executa a função logoMobile
                 logoMobile();
             } else {
-                //Senão, executa logoMonitor
                 logoMonitor();
             }
-            // Função que muda a logo dependendo do tamanho da janela
+            //Sempre que a janela for redimensionada
             window.addEventListener('resize', () => {
-                // Executa a função que retorna o tamanho da tela 
-                // e verifica se é menor ou igual a 620px
+                //Mudar a logo
                 if(tamanhoJanela() <= '620'){
-                    //Se menor ou igual a 620px, executa a função logoMobile
                     logoMobile();
                 } else {
-                    //Senão, executa logoMonitor
                     logoMonitor();
-                }
+                }   
             });
-        }
+        });
     </script>
   </body>
 </html>
