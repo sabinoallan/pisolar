@@ -78,13 +78,18 @@
             var windowWidth = window.innerWidth;
             return windowWidth;
         }
-        window.addEventListener('resize', function(){
-            console.log(tamanhoJanela());
-            if(tamanhoJanela() <= '570'){
+        function verificarTela(){
+            if(tamanhoJanela() <= '600'){
                 logoMobile();
             } else {
-                logoMonitor()
-            }   
+                logoMonitor();
+            }  
+        }
+        window.addEventListener('DOMContentLoaded', function(){
+            verificarTela();
+        });
+        window.addEventListener('resize', function(){
+            verificarTela(); 
         });
     </script>
   </body>
