@@ -20,7 +20,7 @@
     <nav class="navbar navbar-expand-md navbar-light flex-md-column flex-sm-row border-bottom shadow-sm">
         <div>
             <a class="navbar-brand" href="">
-                <img src="../svg/logoMonitor.svg/" id="logo" width="280" height="100" alt="">
+                <img id="logo" src="" width="" height="" alt="">
             </a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#content" aria-controls="content" aria-expanded="false" aria-label="Alterna navegação">
@@ -63,28 +63,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script>
+        // Pegando img no HTML e colocando em uma variável global
         var img = document.getElementById('logo');
+
+        // Função para trocar a logo e redimensionar para mobile
         function logoMobile(){
-            img.setAttribute('src', '../svg/logoMobile.svg/');
+            img.setAttribute('src', '../svg/logoMobile.svg');
             img.setAttribute('width', '100');
             img.setAttribute('height', '60');
         }
+
+        // Função para trocar a logo e redimensionar para telas maiores
         function logoMonitor(){
-            img.setAttribute('src', '../svg/logoMonitor.svg/');
-            img.setAttribute('width', '280');
-            img.setAttribute('height', '100');
+            img.setAttribute('src', '../svg/logoMonitor.svg');
+            img.setAttribute('width', '240');
+            img.setAttribute('height', '80');
         }
+
+        // Função que retorna a largura da da tela
         function tamanhoJanela(){
             var windowWidth = window.innerWidth;
             return windowWidth;
         }
-        window.addEventListener('resize', function(){
-            console.log(tamanhoJanela());
-            if(tamanhoJanela() <= '570'){
+        function trocarImagem(){
+            // Verificar o tamanho da janela e trocar para logo correspondente
+            if(tamanhoJanela() <= '620'){
                 logoMobile();
             } else {
-                logoMonitor()
-            }   
+                logoMonitor();
+            }
+        }
+
+        // Assim que o documento for carregado
+        $(document).ready(()=>{
+            trocarImagem();
+            //Sempre que a janela for redimensionada
+            window.addEventListener('resize', () => {
+                trocarImagem(); 
+            });
         });
     </script>
   </body>
